@@ -82,6 +82,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -96,3 +97,9 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+//ask for length
+var length = prompt("How many characters will your password be? Enter a number between 8 and 128");
+var specialCharacters = prompt("Would you like use special characters?")
+var numericCharacters = prompt("Would you like to use numbers?")
+var lowerCasedCharacters = prompt("Would you like to use lower case letters?")
+var upperCasedCharacters = prompt("Would you like to use upper case letters?")
