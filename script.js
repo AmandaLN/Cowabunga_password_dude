@@ -20,22 +20,21 @@ function writePassword() {
   console.log("Password variable value is: " + password);
   var passwordText = document.querySelector("#passwordOptions");
 
-  passwordText.value = password;
-
-}
-
+  passwordText = password;
+  }
+  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
   //ask for length
-  var length = parseInt(prompt("How many characters will your passwordOptions be?"));
+  var length = parseInt(prompt("How many characters will your password be?"));
   console.log("Length is " + length);
-
+  password = ""
   // run a loop for length amount of times
   if (length >= 8 && length <= 128) {
-    alert("You have chosen a passwordOptions of " + length + " characters.")
+    alert("You have chosen a password of " + length + " characters.")
   }
   else {
     alert("Characters needs to be between 8 and 128.");
@@ -84,12 +83,17 @@ function generatePassword() {
   }
   // IF YES(true) --> how would I add to the passwordOptions array? (What JavaSCRIPT ARRAY METHOD would we use? -> PUSH() )
   // IF NO(false) --> do NOT add them to the passwordOptions variable array (DO NOTHING!!!)
-  // for (let i = 0; i < specialCharacters.length; i++) {
-  //   var specialCharacters = specialCharacters [Math.floor(Math.random() * items.length)];
-    
-  // }
-  // Return 
-// one for loop last if statement
+  
+  // one for loop last if statement
+   
+  for (var i = 0, n = passwordOptions.concat(upperCaseCharacters).length; i < length; ++i) {
+    password += (Math.floor(Math.random() * n));
+}
+
+// return
+return password;
+
+} 
+
  
 
-}
