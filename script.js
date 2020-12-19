@@ -9,7 +9,7 @@ var lowerCaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'
 
 // Array of uppercase characters to be included in passwordOptions
 var upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
+var passwordText = document.querySelector("#password");
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 // var startBtn = document.getElementById("generate");
@@ -18,11 +18,12 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   console.log("Password variable value is: " + password);
-  var passwordText = document.querySelector("#passwordOptions");
-
-  passwordText = password;
-  }
   
+
+  passwordText.value = password;
+
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -47,7 +48,7 @@ function generatePassword() {
   console.log(yesNumericCharacters);
   var yesLowerCaseCharacters = confirm("Would you like to use lower case letters?");
   console.log(yesLowerCaseCharacters);
-  var yesUpperCaseCharacters = confirm("Would you like to use upper case letters?")
+  var yesUpperCaseCharacters = confirm("Would you like to use upper case letters?");
   console.log(yesUpperCaseCharacters);
 
 
@@ -66,34 +67,42 @@ function generatePassword() {
   if (yesNumericCharacters == true) {
     passwordOptions = passwordOptions.concat(numericCharacters);
     console.log("concat " + passwordOptions)
-    
-    }
+
+  }
 
   if (yesLowerCaseCharacters == true) {
     passwordOptions = passwordOptions.concat(lowerCaseCharacters);
     console.log("concat " + passwordOptions)
-   
+
 
   }
 
   if (yesUpperCaseCharacters == true) {
     passwordOptions = passwordOptions.concat(upperCaseCharacters);
     console.log("concat " + passwordOptions)
-    
+
   }
   // IF YES(true) --> how would I add to the passwordOptions array? (What JavaSCRIPT ARRAY METHOD would we use? -> PUSH() )
   // IF NO(false) --> do NOT add them to the passwordOptions variable array (DO NOTHING!!!)
-  
+
   // one for loop last if statement
-   
-  for (var i = 0, n = passwordOptions.concat(upperCaseCharacters).length; i < length; ++i) {
-    password += (Math.floor(Math.random() * n));
+  var pass = [];
+  lastpass = [];
+  for (var i = 0; i < length; i++) {
+console.log(passwordOptions.length);
+    var pass = passwordOptions[Math.floor(Math.random() * passwordOptions.length)];
+    lastpass.push(pass);
+    console.log(passwordOptions);
+    console.log(pass);
+  }
+
+  return lastpass.join("");
+  // return
+
+
+
 }
 
-// return
-return password;
 
-} 
 
- 
 
