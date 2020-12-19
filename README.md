@@ -9,7 +9,7 @@ HTML
 JavaScript
 
 ## Usage
-![Screenshot](./assets/images/Screenshot(18).png)
+![Screenshot](/user.amand/Documents/ucfcodingbootcamp/Homework/Cowabunga_password_dude/assets/image/Screenshot(18).png)
 
 
 ## Maintainer
