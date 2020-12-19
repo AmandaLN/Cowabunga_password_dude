@@ -2,7 +2,7 @@
 ## Description
 For this password generator you will be prompted to pick how long you want your password to be. Length range is from 8 to 128. From there confirm or decline different characters you want. Once completed you secure password will show up in the password box.
 
-*https://github.com/AmandaLN/Cowabunga_password_dude.git
+*https://amandaln.github.io/Cowabunga_password_dude/
 
 ## Technologies
 HTML
