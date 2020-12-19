@@ -1,3 +1,6 @@
+var pass = [];
+var lastpass = [];
+var password = "";
 // Array of special characters to be included in passwordOptions
 var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 
@@ -16,10 +19,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write passwordOptions to the #passwordOptions input
 function writePassword() {
-  var password = generatePassword();
+  password = generatePassword();
   console.log("Password variable value is: " + password);
   
-
+  
   passwordText.value = password;
 
 }
@@ -27,21 +30,21 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 function generatePassword() {
+ 
   //ask for length
   var length = parseInt(prompt("How many characters will your password be?"));
   console.log("Length is " + length);
-  password = ""
+  
   // run a loop for length amount of times
   if (length >= 8 && length <= 128) {
-    alert("You have chosen a password of " + length + " characters.")
+    alert("You have chosen a password of " + length + " characters.");
   }
   else {
     alert("Characters needs to be between 8 and 128.");
     generatePassword();
   }
-
+  
   var yesSpecialCharacters = confirm("Would you like use special characters?");
   console.log(yesSpecialCharacters);
   var yesNumericCharacters = confirm("Would you like to use numbers?");
@@ -51,33 +54,38 @@ function generatePassword() {
   var yesUpperCaseCharacters = confirm("Would you like to use upper case letters?");
   console.log(yesUpperCaseCharacters);
 
+  if (yesLowerCaseCharacters === false && yesNumericCharacters === false && yesSpecialCharacters === false && yesUpperCaseCharacters === false){
+    alert("You need to choose a character type");
+    passwordText.value = "";
+    generatePassword();
+    }
 
   // We Create an ARRAY of VALUES to choose from - Based on what the USER wants
   var passwordOptions = [];
   console.log(passwordOptions);
 
   // IF/ELSE conditional TESTS to determine what values from each ARRAY should be included in the PASSWORD
-  if (yesSpecialCharacters == true) {
-
+  if (yesSpecialCharacters === true) {
+  console.log("testing");
     passwordOptions = passwordOptions.concat(specialCharacters);
-    console.log("concat: " + passwordOptions)
+    console.log("concat: " + passwordOptions);
 
   }
 
-  if (yesNumericCharacters == true) {
+  if (yesNumericCharacters === true) {
     passwordOptions = passwordOptions.concat(numericCharacters);
     console.log("concat " + passwordOptions)
 
   }
 
-  if (yesLowerCaseCharacters == true) {
+  if (yesLowerCaseCharacters === true) {
     passwordOptions = passwordOptions.concat(lowerCaseCharacters);
     console.log("concat " + passwordOptions)
 
 
   }
 
-  if (yesUpperCaseCharacters == true) {
+  if (yesUpperCaseCharacters === true) {
     passwordOptions = passwordOptions.concat(upperCaseCharacters);
     console.log("concat " + passwordOptions)
 
@@ -86,8 +94,7 @@ function generatePassword() {
   // IF NO(false) --> do NOT add them to the passwordOptions variable array (DO NOTHING!!!)
 
   // one for loop last if statement
-  var pass = [];
-  lastpass = [];
+
   for (var i = 0; i < length; i++) {
 console.log(passwordOptions.length);
     var pass = passwordOptions[Math.floor(Math.random() * passwordOptions.length)];
@@ -95,7 +102,7 @@ console.log(passwordOptions.length);
     console.log(passwordOptions);
     console.log(pass);
   }
-
+console.log(lastpass);
   return lastpass.join("");
   // return
 
